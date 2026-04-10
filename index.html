@@ -1,655 +1,157 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="de">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2113.65">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px 'Helvetica Neue'}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px 'Helvetica Neue'; min-height: 15.0px}
-    span.s1 {font: 13.0px 'Apple Color Emoji'}
-    span.s2 {font: 13.0px 'Lucida Grande'}
-    span.s3 {font: 13.0px 'PingFang SC'}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MagicMoments</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+body {
+font-family: 'Inter', sans-serif;
+margin:0;
+background:#0f0f1a;
+color:white;
+}
+
+header {
+background: linear-gradient(135deg,#ff6ec4,#6a5af9);
+padding:80px 20px;
+text-align:center;
+}
+
+header h1 {
+font-size:48px;
+}
+
+header p {
+opacity:0.9;
+margin-top:10px;
+}
+
+.btn {
+display:inline-block;
+margin-top:20px;
+padding:14px 28px;
+background:white;
+color:black;
+border-radius:30px;
+font-weight:600;
+text-decoration:none;
+}
+
+.container {
+max-width:1100px;
+margin:auto;
+padding:40px 20px;
+}
+
+.grid {
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.card {
+background:#1a1a2e;
+padding:20px;
+border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,0.3);
+transition:0.3s;
+}
+
+.card:hover {
+transform:translateY(-5px);
+}
+
+.card img {
+width:100%;
+border-radius:10px;
+margin-bottom:10px;
+}
+
+.rating {
+color:gold;
+margin-bottom:10px;
+}
+
+.card a {
+display:block;
+text-align:center;
+padding:12px;
+background:linear-gradient(135deg,#ff6ec4,#6a5af9);
+border-radius:20px;
+text-decoration:none;
+color:white;
+font-weight:600;
+}
+
+.footer {
+text-align:center;
+padding:30px;
+opacity:0.6;
+font-size:12px;
+}
+</style>
 </head>
+
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="de"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;MagicMoments&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Playfair+Display:wght@700&amp;display=swap" rel="stylesheet"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>:root {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--bg: #0b0b14;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--bg-soft: #121222;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--card: rgba(255,255,255,0.08);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--card-border: rgba(255,255,255,0.12);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--text: #f5f2ff;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--muted: rgba(245,242,255,0.75);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--pink: #ff77c8;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--violet: #7c5cff;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--gold: #ffd98a;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--shadow: 0 20px 60px rgba(0,0,0,0.35);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--radius: 24px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>* {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>box-sizing: border-box;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>html {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>scroll-behavior: smooth;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>body {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-family: 'Inter', sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background:</p>
-<p class="p1"><span class="Apple-converted-space">        </span>radial-gradient(circle at 15% 20%, rgba(255,119,200,0.18), transparent 28%),</p>
-<p class="p1"><span class="Apple-converted-space">        </span>radial-gradient(circle at 85% 10%, rgba(124,92,255,0.22), transparent 30%),</p>
-<p class="p1"><span class="Apple-converted-space">        </span>linear-gradient(180deg, #0a0912 0%, #0d0d18 45%, #111120 100%);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: var(--text);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>line-height: 1.6;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>a {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: inherit;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-decoration: none;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.container {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width: min(1180px, calc(100% - 32px));</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 0 auto;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.topbar {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>position: sticky;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>top: 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>z-index: 50;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>backdrop-filter: blur(14px);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(11,11,20,0.55);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-bottom: 1px solid rgba(255,255,255,0.08);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.nav {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>justify-content: space-between;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 16px 0;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.logo {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 800;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 1.15rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: 0.3px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.logo span {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: var(--pink);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.nav-links {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: var(--muted);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.95rem;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.nav-links a:hover {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: #fff;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.btn {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: inline-flex;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>justify-content: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap: 8px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 14px 22px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 999px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 700;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>cursor: pointer;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border: none;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.btn:hover {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>transform: translateY(-2px);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.btn-primary {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: linear-gradient(135deg, var(--pink), var(--violet));</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 16px 40px rgba(124,92,255,0.28);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.btn-secondary {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(255,255,255,0.08);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid rgba(255,255,255,0.1);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.hero {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 82px 0 42px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.hero-grid {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: grid;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns: 1.1fr 0.9fr;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap: 28px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.badge {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: inline-flex;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap: 8px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 10px 14px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 999px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(255,255,255,0.08);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid rgba(255,255,255,0.1);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: var(--gold);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.9rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 18px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.hero h1 {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-family: 'Playfair Display', serif;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: clamp(2.6rem, 6vw, 4.7rem);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>line-height: 1.02;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: -0.02em;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 16px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.hero p {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: var(--muted);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 1.08rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>max-width: 620px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 28px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.hero-actions {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap: 14px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>flex-wrap: wrap;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 26px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.hero-points {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>flex-wrap: wrap;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: var(--muted);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.95rem;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.hero-card {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>position: relative;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.05));</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid var(--card-border);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 32px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 28px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>min-height: 430px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: var(--shadow);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>overflow: hidden;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.hero-card::before {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>content: "";</p>
-<p class="p1"><span class="Apple-converted-space">      </span>position: absolute;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>inset: auto -40px -50px auto;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width: 220px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>height: 220px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: radial-gradient(circle, rgba(255,119,200,0.38), transparent 70%);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>filter: blur(12px);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.hero-card::after {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>content: "";</p>
-<p class="p1"><span class="Apple-converted-space">      </span>position: absolute;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>top: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>left: -30px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width: 160px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>height: 160px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: radial-gradient(circle, rgba(124,92,255,0.36), transparent 70%);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>filter: blur(8px);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.product-showcase {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>position: relative;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>z-index: 2;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: grid;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap: 14px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 24px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.mini-card {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(10,10,20,0.55);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid rgba(255,255,255,0.1);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 22px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 16px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap: 14px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.mini-icon {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width: 52px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>height: 52px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 16px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: grid;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>place-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 1.4rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: linear-gradient(135deg, rgba(255,119,200,0.25), rgba(124,92,255,0.25));</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid rgba(255,255,255,0.12);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>flex-shrink: 0;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.mini-card h4 {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 1rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 2px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.mini-card p {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.88rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: var(--muted);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 0;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.section {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 42px 0;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.section-head {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>justify-content: space-between;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>align-items: end;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap: 18px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 24px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.eyebrow {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: var(--gold);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 700;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-transform: uppercase;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: 0.12em;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.78rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 8px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.section h2 {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: clamp(1.8rem, 4vw, 2.8rem);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>line-height: 1.1;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.section-subtext {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: var(--muted);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>max-width: 580px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.products-grid {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: grid;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns: repeat(4, 1fr);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.product-card {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>position: relative;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: linear-gradient(180deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid var(--card-border);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: var(--radius);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>overflow: hidden;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: var(--shadow);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.product-card:hover {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>transform: translateY(-6px);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-color: rgba(255,119,200,0.4);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 28px 70px rgba(0,0,0,0.42);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.product-tag {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: inline-flex;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 8px 12px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 999px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(255,255,255,0.1);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.78rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 700;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: var(--gold);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 18px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.product-icon {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width: 78px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>height: 78px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 24px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: grid;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>place-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 18px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 2rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: linear-gradient(135deg, rgba(255,119,200,0.22), rgba(124,92,255,0.18));</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid rgba(255,255,255,0.12);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.product-card h3 {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 1.2rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 8px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.product-card p {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: var(--muted);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.95rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 16px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>min-height: 72px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.rating {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: #ffd98a;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: 0.08em;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 16px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.95rem;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.product-card .btn {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 13px 18px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.benefits {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: grid;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns: repeat(3, 1fr);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.benefit-card {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(255,255,255,0.06);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid rgba(255,255,255,0.1);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 22px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 22px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.benefit-card h3 {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 14px 0 8px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 1.08rem;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.benefit-card p {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: var(--muted);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.95rem;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.cta-box {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>position: relative;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>overflow: hidden;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: linear-gradient(135deg, rgba(255,119,200,0.18), rgba(124,92,255,0.2));</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid rgba(255,255,255,0.12);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 32px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 34px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>justify-content: space-between;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: var(--shadow);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.cta-box h2 {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.cta-box p {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: var(--muted);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>max-width: 640px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>footer {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 32px 0 56px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: rgba(245,242,255,0.62);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 0.9rem;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.footer-box {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-top: 1px solid rgba(255,255,255,0.08);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding-top: 22px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>justify-content: space-between;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap: 18px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>flex-wrap: wrap;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>@media (max-width: 1040px) {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>.hero-grid,</p>
-<p class="p1"><span class="Apple-converted-space">      </span>.products-grid,</p>
-<p class="p1"><span class="Apple-converted-space">      </span>.benefits,</p>
-<p class="p1"><span class="Apple-converted-space">      </span>.cta-box {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>grid-template-columns: 1fr;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>.products-grid {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>grid-template-columns: repeat(2, 1fr);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>.benefits {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>grid-template-columns: 1fr 1fr;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>.cta-box {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>display: grid;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>@media (max-width: 760px) {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>.nav {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>flex-direction: column;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>gap: 12px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>.nav-links {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>flex-wrap: wrap;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>justify-content: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>.hero {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>padding-top: 56px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>.hero-grid,</p>
-<p class="p1"><span class="Apple-converted-space">      </span>.products-grid,</p>
-<p class="p1"><span class="Apple-converted-space">      </span>.benefits {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>grid-template-columns: 1fr;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>.hero-card {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>min-height: auto;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>.section-head {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>align-items: start;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>flex-direction: column;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>.hero h1 {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>font-size: 2.8rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="topbar"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="container nav"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;a href="#top" class="logo"&gt;Magic&lt;span&gt;Moments&lt;/span&gt; <span class="s1">✨</span>&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="nav-links"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;a href="#produkte"&gt;Produkte&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;a href="#vorteile"&gt;Vorteile&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;a href="#shoppen"&gt;Jetzt shoppen&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;header class="hero" id="top"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="container hero-grid"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="badge"&gt;<span class="s1">✨</span> Beauty, Care &amp; Lifestyle Empfehlungen&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h1&gt;Finde deine neuen Lieblingsprodukte für jeden besonderen Moment.&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>Entdecke ausgewählte Produkte aus Parfüm, Nutrition, Haircare und Personal Care — stilvoll präsentiert, schnell gefunden und direkt verlinkt.</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="hero-actions"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;a class="btn btn-primary" href="#produkte"&gt;Jetzt Angebote entdecken&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;a class="btn btn-secondary" href="#vorteile"&gt;Mehr erfahren&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="hero-points"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;span&gt;<span class="s2">✓</span> Premium Auswahl&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;span&gt;<span class="s2">✓</span> Direkt verlinkt&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;span&gt;<span class="s2">✓</span> Modern &amp; mobilfreundlich&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="hero-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="badge"&gt;Beliebte Kategorien&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="product-showcase"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="mini-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="mini-icon"&gt;<span class="s1">🌸</span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;h4&gt;Parfüm&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;p&gt;Elegante Düfte mit luxuriösem Charakter.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="mini-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="mini-icon"&gt;<span class="s1">💪</span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;h4&gt;Nutrition&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;p&gt;Support für Energie, Alltag und Wohlbefinden.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="mini-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="mini-icon"&gt;<span class="s1">💇</span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;h4&gt;Haircare &amp; Care&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;p&gt;Pflegeprodukte für ein frisches, gepflegtes Gefühl.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/header&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;main&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="section" id="produkte"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="section-head"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="eyebrow"&gt;Top Empfehlungen&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2&gt;Unsere schönsten Deals&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;p class="section-subtext"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>Vier ausgewählte Produkte für Duft, Wohlbefinden, Haarpflege und tägliche Körperpflege.</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="products-grid"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;article class="product-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="product-tag"&gt;Parfüm Bestseller&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="product-icon"&gt;<span class="s1">🌸</span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3&gt;Extract de Parfum X-01&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;Ein eleganter Premium-Duft für starke Auftritte und besondere Momente.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="rating"&gt;<span class="s3">★★★★★</span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;a class="btn btn-primary" href="https://www.xaxx.eu/parfum/x-line/parfum/1100/extract-de-parfum-100ml-x-01?partner=82424" target="_blank" rel="noopener noreferrer"&gt;Jetzt entdecken&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/article&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;article class="product-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="product-tag"&gt;Nutrition Favorit&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="product-icon"&gt;<span class="s1">💪</span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3&gt;3 x Shake oder Müsli&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;Praktische Auswahl für deinen Alltag — ideal für Genuss, Routine und Energie.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="rating"&gt;<span class="s3">★★★★★</span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;a class="btn btn-primary" href="https://www.xaxx.eu/nutrition/ernaehrung/1019/3-x-shake-oder-muesli-nach-wahl?partner=82424" target="_blank" rel="noopener noreferrer"&gt;Jetzt entdecken&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/article&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;article class="product-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="product-tag"&gt;Haircare Must-have&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="product-icon"&gt;<span class="s1">💇</span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3&gt;XAXX Hair Set&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;Creme, Shampoo und Haarmaske in einem Set für ein gepflegtes Haargefühl.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="rating"&gt;<span class="s3">★★★★★</span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;a class="btn btn-primary" href="https://www.xaxx.eu/hair-care-new/988/xaxx-hair-set-creme-shampoo-haarmaske?partner=82424" target="_blank" rel="noopener noreferrer"&gt;Jetzt entdecken&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/article&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;article class="product-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="product-tag"&gt;Care Empfehlung&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="product-icon"&gt;<span class="s1">🧴</span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3&gt;Sensitive Hand- &amp; Fußcreme Set&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;Sanfte Pflege für jeden Tag — ideal für Hände und Füße mit Wohlfühlfaktor.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="rating"&gt;<span class="s3">★★★★★</span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;a class="btn btn-primary" href="https://www.xaxx.eu/xaxx-care/frei-oel/1037/set-sensitive-handcreme-fusscreme-je-100ml?partner=82424" target="_blank" rel="noopener noreferrer"&gt;Jetzt entdecken&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/article&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="section" id="vorteile"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="section-head"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="eyebrow"&gt;Warum MagicMoments&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2&gt;Schön, klar und verkaufsstark aufgebaut&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;p class="section-subtext"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>Das Layout wurde so gestaltet, dass Besucher schnell Vertrauen fassen und direkt zu den Produkten finden.</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="benefits"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="benefit-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="mini-icon"&gt;<span class="s1">✨</span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3&gt;Edler erster Eindruck&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;Ein hochwertiger Look sorgt dafür, dass deine Seite sofort professioneller und attraktiver wirkt.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="benefit-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="mini-icon"&gt;<span class="s1">⚡</span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3&gt;Klare Kaufwege&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;Jedes Produkt hat einen starken Button, damit Besucher ohne Umwege direkt zum Angebot gelangen.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="benefit-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="mini-icon"&gt;<span class="s1">📱</span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3&gt;Optimiert für Mobilgeräte&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;Die Seite sieht auch auf dem Handy sauber aus — wichtig, weil viele Klicks mobil passieren.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="section" id="shoppen"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="cta-box"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="eyebrow"&gt;Jetzt shoppen&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2&gt;Entdecke deine Magic Moments&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>Klicke dich durch die ausgewählten Produkte und finde neue Favoriten aus Duft, Nutrition, Haircare und Personal Care.</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;a class="btn btn-primary" href="#produkte"&gt;Zu den Produkten&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/main&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;footer&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="container footer-box"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div&gt;© 2026 MagicMoments&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div&gt;Diese Seite enthält Affiliate-Links. Wenn du über einen dieser Links kaufst, erhalten wir eine Provision. Für dich entstehen keine Mehrkosten.&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/footer&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+
+<header>
+<h1>MagicMoments ✨</h1>
+<p>Parfüm • Nutrition • Haircare • Personal Care</p>
+<a class="btn" href="#angebote">🔥 Top Deals ansehen</a>
+</header>
+
+<div class="container" id="angebote">
+
+<h2>🔥 Beliebte Produkte</h2>
+
+<div class="grid">
+
+<!-- PARFÜM -->
+<div class="card">
+<img src="https://via.placeholder.com/300x200" alt="Parfum">
+<h3>🌸 Premium Parfüm</h3>
+<div class="rating">★★★★★</div>
+<p>Luxuriöser Duft für besondere Momente.</p>
+<a href="https://www.xaxx.eu/parfum/x-line/parfum/1100/extract-de-parfum-100ml-x-01?partner=82424" target="_blank">Jetzt kaufen</a>
+</div>
+
+<!-- NUTRITION -->
+<div class="card">
+<img src="https://via.placeholder.com/300x200" alt="Nutrition">
+<h3>💪 Nutrition Set</h3>
+<div class="rating">★★★★★</div>
+<p>Perfekt für Energie & Alltag.</p>
+<a href="https://www.xaxx.eu/nutrition/ernaehrung/1019/3-x-shake-oder-muesli-nach-wahl?partner=82424" target="_blank">Jetzt kaufen</a>
+</div>
+
+<!-- HAIRCARE -->
+<div class="card">
+<img src="https://via.placeholder.com/300x200" alt="Haircare">
+<h3>💇 Haircare Set</h3>
+<div class="rating">★★★★★</div>
+<p>Starke Pflege für gesundes Haar.</p>
+<a href="https://www.xaxx.eu/hair-care-new/988/xaxx-hair-set-creme-shampoo-haarmaske?partner=82424" target="_blank">Jetzt kaufen</a>
+</div>
+
+<!-- BODYCARE -->
+<div class="card">
+<img src="https://via.placeholder.com/300x200" alt="Bodycare">
+<h3>🧴 Pflege Set</h3>
+<div class="rating">★★★★★</div>
+<p>Sanfte Pflege für jeden Tag.</p>
+<a href="https://www.xaxx.eu/xaxx-care/frei-oel/1037/set-sensitive-handcreme-fusscreme-je-100ml?partner=82424" target="_blank">Jetzt kaufen</a>
+</div>
+
+</div>
+</div>
+
+<div class="footer">
+Diese Seite enthält Affiliate-Links. Bei Kauf erhalten wir eine Provision.
+</div>
+
 </body>
 </html>
