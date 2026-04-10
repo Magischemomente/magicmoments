@@ -1,153 +1,474 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MagicMoments</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MagicMoments</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fcf8f6;
+      --bg-soft: #f6efeb;
+      --card: #ffffff;
+      --line: #eadfd8;
+      --text: #2d1f1f;
+      --muted: #7b6868;
+      --accent: #c98f8f;
+      --accent-dark: #a86f6f;
+      --shadow: 0 12px 30px rgba(96, 63, 63, 0.08);
+      --radius: 24px;
+    }
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-<style>
-body {
-font-family: 'Inter', sans-serif;
-margin:0;
-background:#0f0f1a;
-color:white;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-header {
-background: linear-gradient(135deg,#ff6ec4,#6a5af9);
-padding:80px 20px;
-text-align:center;
-}
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(180deg, #fffaf8 0%, #f8f2ef 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
 
-header h1 {
-font-size:48px;
-}
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
-header p {
-opacity:0.9;
-margin-top:10px;
-}
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-.btn {
-display:inline-block;
-margin-top:20px;
-padding:14px 28px;
-background:white;
-color:black;
-border-radius:30px;
-font-weight:600;
-text-decoration:none;
-}
+    .container {
+      width: min(1140px, calc(100% - 32px));
+      margin: 0 auto;
+    }
 
-.container {
-max-width:1100px;
-margin:auto;
-padding:40px 20px;
-}
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 250, 248, 0.88);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(201, 143, 143, 0.14);
+    }
 
-.grid {
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      gap: 16px;
+    }
 
-.card {
-background:#1a1a2e;
-padding:20px;
-border-radius:15px;
-box-shadow:0 5px 20px rgba(0,0,0,0.3);
-transition:0.3s;
-}
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
 
-.card:hover {
-transform:translateY(-5px);
-}
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
 
-.card img {
-width:100%;
-border-radius:10px;
-margin-bottom:10px;
-}
+    .nav-links a:hover {
+      color: var(--text);
+    }
 
-.rating {
-color:gold;
-margin-bottom:10px;
-}
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 24px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: 0.2s ease;
+      border: none;
+      cursor: pointer;
+    }
 
-.card a {
-display:block;
-text-align:center;
-padding:12px;
-background:linear-gradient(135deg,#ff6ec4,#6a5af9);
-border-radius:20px;
-text-decoration:none;
-color:white;
-font-weight:600;
-}
+    .btn:hover {
+      transform: translateY(-1px);
+    }
 
-.footer {
-text-align:center;
-padding:30px;
-opacity:0.6;
-font-size:12px;
-}
-</style>
+    .btn-primary {
+      background: var(--text);
+      color: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid var(--line);
+      color: var(--text);
+    }
+
+    .hero {
+      padding: 72px 0 48px;
+    }
+
+    .hero-box {
+      background: linear-gradient(135deg, rgba(255,255,255,0.96), rgba(248,239,235,0.96));
+      border: 1px solid var(--line);
+      border-radius: 36px;
+      padding: 58px;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 14px;
+      font-size: 0.82rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-dark);
+      font-weight: 700;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 7vw, 5.2rem);
+      line-height: 0.95;
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.02rem;
+      max-width: 560px;
+      margin-bottom: 26px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .hero-note {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .hero-image-wrap {
+      background: #f4e9e3;
+      border-radius: 30px;
+      padding: 18px;
+      border: 1px solid var(--line);
+    }
+
+    .hero-image {
+      height: 430px;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 22px;
+    }
+
+    .section {
+      padding: 28px 0 60px;
+    }
+
+    .section-head {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .section-head h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      margin-bottom: 8px;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      transition: 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+    }
+
+    .card-media {
+      aspect-ratio: 4 / 4.5;
+      background: var(--bg-soft);
+      padding: 16px;
+    }
+
+    .card-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 18px;
+      background: #fff;
+    }
+
+    .card-body {
+      padding: 18px 18px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+    }
+
+    .tag {
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent-dark);
+      font-weight: 700;
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      line-height: 1.25;
+    }
+
+    .stars {
+      color: #d9a441;
+      letter-spacing: 0.08em;
+      font-size: 0.92rem;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.94rem;
+      min-height: 66px;
+    }
+
+    .card .btn {
+      width: 100%;
+      margin-top: auto;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: white;
+    }
+
+    .benefits {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 8px;
+    }
+
+    .benefit {
+      background: rgba(255,255,255,0.72);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .benefit h3 {
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+    }
+
+    .benefit p {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .footer {
+      padding: 26px 0 42px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    @media (max-width: 1024px) {
+      .hero-box,
+      .grid,
+      .benefits {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero-box {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav {
+        flex-direction: column;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero-box {
+        padding: 28px;
+      }
+
+      .grid,
+      .benefits {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-image {
+        height: 320px;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="topbar">
+    <div class="container nav">
+      <a class="logo" href="#top">MagicMoments ✨</a>
+      <div class="nav-links">
+        <a href="#produkte">Produkte</a>
+        <a href="#vorteile">Warum wir</a>
+      </div>
+    </div>
+  </div>
 
-<header>
-<h1>MagicMoments ✨</h1>
-<p>Parfüm • Nutrition • Haircare • Personal Care</p>
-<a class="btn" href="#angebote">🔥 Top Deals ansehen</a>
-</header>
+  <section class="hero" id="top">
+    <div class="container hero-box">
+      <div>
+        <span class="eyebrow">Beauty • Care • Lifestyle</span>
+        <h1>Schöne Produkte. Stilvoll präsentiert.</h1>
+        <p>
+          Entdecke ausgewählte XAXX-Produkte aus Parfüm, Nutrition, Haircare und Personal Care in einem ruhigen, eleganten Look.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#produkte">Produkte ansehen</a>
+          <a class="btn btn-secondary" href="#vorteile">Mehr erfahren</a>
+        </div>
+        <div class="hero-note">Ausgewählte Empfehlungen mit direkter Weiterleitung zum Produkt.</div>
+      </div>
 
-<div class="container" id="angebote">
+      <div class="hero-image-wrap">
+        <img class="hero-image" src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=900&q=80" alt="Beauty Produkte">
+      </div>
+    </div>
+  </section>
 
-<h2>🔥 Beliebte Produkte</h2>
+  <section class="section" id="produkte">
+    <div class="container">
+      <div class="section-head">
+        <h2>Unsere Empfehlungen</h2>
+        <p>Weniger bunt, mehr Premium. Klare Produktkarten mit Fokus auf Bild, Produktname und Button.</p>
+      </div>
 
-<div class="grid">
+      <div class="grid">
+        <div class="card">
+          <div class="card-media">
+            <img src="https://www.xaxx.eu/media/image/f0/1d/1d/X-01-Box-Flacon-Halb-Offen-Shopbild.jpg" alt="Parfüm">
+          </div>
+          <div class="card-body">
+            <div class="tag">Parfüm</div>
+            <h3>Extract de Parfum X-01</h3>
+            <div class="stars">★★★★★</div>
+            <p>Eleganter Duft mit hochwertigem Auftritt für besondere Momente.</p>
+            <a class="btn" href="https://www.xaxx.eu/parfum/x-line/parfum/1100/extract-de-parfum-100ml-x-01?partner=82424" target="_blank" rel="noopener noreferrer">Jetzt ansehen</a>
+          </div>
+        </div>
 
-<div class="card">
-<img src="https://www.xaxx.eu/media/image/f0/1d/1d/X-01-Box-Flacon-Halb-Offen-Shopbild.jpg" alt="Parfum">
-<h3>🌸 Premium Parfüm</h3>
-<div class="rating">★★★★★</div>
-<p>Luxuriöser Duft für besondere Momente.</p>
-<a href="https://www.xaxx.eu/parfum/x-line/parfum/1100/extract-de-parfum-100ml-x-01?partner=82424" target="_blank">Jetzt kaufen</a>
-</div>
+        <div class="card">
+          <div class="card-media">
+            <img src="https://www.xaxx.eu/media/image/a8/85/b0/3-1SET-Shake-Muesli-2024.jpg" alt="Nutrition">
+          </div>
+          <div class="card-body">
+            <div class="tag">Nutrition</div>
+            <h3>Shake oder Müsli Set</h3>
+            <div class="stars">★★★★★</div>
+            <p>Praktische Auswahl für Energie, Alltag und eine einfache Routine.</p>
+            <a class="btn" href="https://www.xaxx.eu/nutrition/ernaehrung/1019/3-x-shake-oder-muesli-nach-wahl?partner=82424" target="_blank" rel="noopener noreferrer">Jetzt ansehen</a>
+          </div>
+        </div>
 
-<div class="card">
-<img src="https://www.xaxx.eu/media/image/a8/85/b0/3-1SET-Shake-Muesli-2024.jpg" alt="Nutrition">
-<h3>💪 Nutrition Set</h3>
-<div class="rating">★★★★★</div>
-<p>Perfekt für Energie & Alltag.</p>
-<a href="https://www.xaxx.eu/nutrition/ernaehrung/1019/3-x-shake-oder-muesli-nach-wahl?partner=82424" target="_blank">Jetzt kaufen</a>
-</div>
+        <div class="card">
+          <div class="card-media">
+            <img src="https://www.xaxx.eu/media/image/38/d7/8a/SET-Shampoo-Maske.jpg" alt="Haircare">
+          </div>
+          <div class="card-body">
+            <div class="tag">Haircare</div>
+            <h3>XAXX Hair Set</h3>
+            <div class="stars">★★★★★</div>
+            <p>Shampoo und Maske für ein gepflegtes Haargefühl mit klarem Look.</p>
+            <a class="btn" href="https://www.xaxx.eu/hair-care-new/988/xaxx-hair-set-creme-shampoo-haarmaske?partner=82424" target="_blank" rel="noopener noreferrer">Jetzt ansehen</a>
+          </div>
+        </div>
 
-<div class="card">
-<img src="https://www.xaxx.eu/media/image/38/d7/8a/SET-Shampoo-Maske.jpg" alt="Haircare">
-<h3>💇 Haircare Set</h3>
-<div class="rating">★★★★★</div>
-<p>Starke Pflege für gesundes Haar.</p>
-<a href="https://www.xaxx.eu/hair-care-new/988/xaxx-hair-set-creme-shampoo-haarmaske?partner=82424" target="_blank">Jetzt kaufen</a>
-</div>
+        <div class="card">
+          <div class="card-media">
+            <img src="https://www.xaxx.eu/media/image/7b/da/b5/Set-Handcreme-Fusscreme-Shopbild.jpg" alt="Pflege Set">
+          </div>
+          <div class="card-body">
+            <div class="tag">Personal Care</div>
+            <h3>Sensitive Pflege Set</h3>
+            <div class="stars">★★★★★</div>
+            <p>Sanfte tägliche Pflege für Hände und Füße in einem Set.</p>
+            <a class="btn" href="https://www.xaxx.eu/xaxx-care/frei-oel/1037/set-sensitive-handcreme-fusscreme-je-100ml?partner=82424" target="_blank" rel="noopener noreferrer">Jetzt ansehen</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<div class="card">
-<img src="https://www.xaxx.eu/media/image/7b/da/b5/Set-Handcreme-Fusscreme-Shopbild.jpg" alt="Bodycare">
-<h3>🧴 Pflege Set</h3>
-<div class="rating">★★★★★</div>
-<p>Sanfte Pflege für jeden Tag.</p>
-<a href="https://www.xaxx.eu/xaxx-care/frei-oel/1037/set-sensitive-handcreme-fusscreme-je-100ml?partner=82424" target="_blank">Jetzt kaufen</a>
-</div>
+  <section class="section" id="vorteile">
+    <div class="container">
+      <div class="section-head">
+        <h2>Warum dieses Layout besser wirkt</h2>
+        <p>Es ist ruhiger, hochwertiger und passt besser zu Beauty, Parfüm und Pflege.</p>
+      </div>
 
-</div></div>
-</div>
+      <div class="benefits">
+        <div class="benefit">
+          <h3>Edler Auftritt</h3>
+          <p>Helle Farben, mehr Weißraum und weniger Ablenkung lassen die Seite hochwertiger wirken.</p>
+        </div>
+        <div class="benefit">
+          <h3>Klarer Fokus</h3>
+          <p>Produktbild, Name und Button stehen im Mittelpunkt statt zu vieler bunter Elemente.</p>
+        </div>
+        <div class="benefit">
+          <h3>Besser für Beauty</h3>
+          <p>Der Look erinnert eher an eine elegante Beauty- oder Lifestyle-Brand.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<div class="footer">
-Diese Seite enthält Affiliate-Links. Bei Kauf erhalten wir eine Provision.
-</div>
-
+  <div class="footer container">
+    Diese Seite enthält Affiliate-Links. Wenn du über einen Link kaufst, erhalten wir eine Provision. Für dich entstehen keine Mehrkosten.
+  </div>
 </body>
 </html>
