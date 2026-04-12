@@ -29,6 +29,19 @@
   max-height: 100%;
   object-fit: contain;
 }
+.card-media img.hair-img {
+  width: 75%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.card-media img.care-img {
+  width: 72%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+}
     * {
       box-sizing: border-box;
       margin: 0;
@@ -268,20 +281,24 @@
 }
 
     .card-body {
-      padding: 18px 18px 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      flex: 1;
-    }
+  padding: 18px 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
 
-    .tag {
-      font-size: 0.76rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--accent-dark);
-      font-weight: 700;
-    }
+.card-body .btn {
+  margin-top: auto;
+}
+
+.tag {
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent-dark);
+  font-weight: 700;
+}
 
     .card h3 {
       font-size: 1.1rem;
@@ -573,31 +590,34 @@
           </div>
         </a>
 
-        <a class="card" href="https://www.xaxx.eu/hair-care-new/988/xaxx-hair-set-creme-shampoo-haarmaske?partner=82424" target="_blank" rel="noopener noreferrer">
-          <div class="card-media">
-            <img src="https://www.xaxx.eu/media/image/38/d7/8a/SET-Shampoo-Maske.jpg" alt="XAXX Hair Set mit Shampoo und Maske">
-          </div>
-          <div class="card-body">
-            <div class="tag">Haircare</div>
-            <h3>XAXX Hair Set</h3>
-            <div class="stars">★★★★★</div>
-            <p>Shampoo und Maske für ein gepflegtes Haargefühl mit klarem Look.</p>
-            <span class="btn">Jetzt ansehen</span>
-          </div>
-        </a>
+        <a class="card" href="https://www.xaxx.eu/hair-care-new/988/xaxx-hair-set-creme-shampoo-haarmaske" target="_blank" rel="noopener">
+  <div class="card-media">
+    <img class="hair-img" src="https://www.xaxx.eu/media/image/1b/5c/6a/xaxx-hair-set.jpg" alt="XAXX Hair Set">
+  </div>
 
-        <a class="card" href="https://www.xaxx.eu/xaxx-care/frei-oel/1037/set-sensitive-handcreme-fusscreme-je-100ml?partner=82424" target="_blank" rel="noopener noreferrer">
-          <div class="card-media">
-            <img src="https://www.xaxx.eu/media/image/7b/da/b5/Set-Handcreme-Fusscreme-Shopbild.jpg" alt="Sensitive Pflege Set für Hände und Füße">
-          </div>
-          <div class="card-body">
-            <div class="tag">Personal Care</div>
-            <h3>Sensitive Pflege Set</h3>
-            <div class="stars">★★★★★</div>
-            <p>Sanfte tägliche Pflege für Hände und Füße in einem Set.</p>
-            <span class="btn">Jetzt ansehen</span>
-          </div>
-        </a>
+  <div class="card-body">
+    <div class="tag">Haircare</div>
+    <h3>XAXX Hair Set</h3>
+    <div class="stars">★★★★★</div>
+    <p>Shampoo und Maske für ein gepflegtes Haargefühl mit klarem Look.</p>
+    <span class="btn">Jetzt ansehen</span>
+  </div>
+</a>
+
+        <a class="card" href="https://www.xaxx.eu/personal-care/986/sensitive-pflege-set" target="_blank" rel="noopener">
+  <div class="card-media">
+    <img class="care-img" src="https://www.xaxx.eu/media/image/8e/65/5c/sensitive-pflege-set.jpg" alt="Sensitive Pflege Set">
+  </div>
+
+  <div class="card-body">
+    <div class="tag">Personal Care</div>
+    <h3>Sensitive Pflege Set</h3>
+    <div class="stars">★★★★★</div>
+    <p>Sanfte tägliche Pflege für Hände und Füße in einem Set.</p>
+    <span class="btn">Jetzt ansehen</span>
+  </div>
+</a>
+        
       </div>
     </div>
   </section>
