@@ -19,9 +19,14 @@
   --accent-dark: #a86f6f;
   --shadow: 0 12px 30px rgba(96, 63, 63, 0.08);
 }
-.shake-img {
-  width: 85%;
+.shake-media {
+  align-items: flex-end;
+}
+
+.card-media img.shake-img {
+  width: 78%;
   height: auto;
+  max-height: 100%;
   object-fit: contain;
 }
     * {
@@ -556,9 +561,9 @@
         </a>
 
         <a class="card" href="https://www.xaxx.eu/nutrition/ernaehrung/1019/3-x-shake-oder-muesli-nach-wahl?partner=82424" target="_blank" rel="noopener noreferrer">
-          <div class="card-media">
-            <img class="shake-img" src="heidelbeereshake.png" alt="XAXX Shake Heidelbeere">
-          </div>
+          <div class="card-media shake-media">
+  <img class="shake-img" src="heidelbeereshake.png" alt="XAXX Shake Heidelbeere">
+</div>
           <div class="card-body">
             <div class="tag">Nutrition</div>
             <h3>Shake oder Müsli Set</h3>
