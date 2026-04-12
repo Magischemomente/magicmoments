@@ -357,7 +357,7 @@
       }
     }
 
-   @media (max-width: 720px) {
+ @media (max-width: 720px) {
   .nav {
     flex-direction: row;
     justify-content: space-between;
@@ -380,6 +380,7 @@
 
   .hero-box {
     padding: 28px;
+    grid-template-columns: 1fr;
   }
 
   .grid,
@@ -388,17 +389,17 @@
   }
 
   .hero-image-wrap {
-  display: block;
-}
+    display: block;
+    padding: 12px;
+  }
 
-.hero-image {
-  width: 100%;
-  height: auto;
-  max-height: 240px;
-  object-fit: contain;
-}
-}
-</style>
+  .hero-image {
+    width: 100%;
+    height: auto;
+    max-height: 220px;
+    object-fit: contain;
+  }
+}</style>
 </head>
 <body>
   <div class="topbar">
