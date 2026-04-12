@@ -357,7 +357,7 @@
       }
     }
 
- @media (max-width: 720px) {
+@media (max-width: 720px) {
   .nav {
     flex-direction: row;
     justify-content: space-between;
@@ -379,13 +379,29 @@
   }
 
   .hero-box {
+    display: block;
     padding: 28px;
-    grid-template-columns: 1fr;
+  }
+
+  .hero-image-wrap {
+    display: block;
+    max-width: 260px;
+    margin: 0 auto 20px;
+    padding: 12px;
+  }
+
+  .hero-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
   }
 
   .grid,
   .benefits {
     grid-template-columns: 1fr;
+  }
   }
 
   .hero-image-wrap {
