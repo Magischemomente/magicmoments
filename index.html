@@ -18,7 +18,6 @@
       --accent: #c98f8f;
       --accent-dark: #a86f6f;
       --shadow: 0 12px 30px rgba(96, 63, 63, 0.08);
-      --radius: 24px;
     }
 
     * {
@@ -57,7 +56,7 @@
       position: sticky;
       top: 0;
       z-index: 20;
-      background: rgba(255, 250, 248, 0.88);
+      background: rgba(255, 250, 248, 0.92);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(201, 143, 143, 0.14);
     }
@@ -75,6 +74,7 @@
       font-size: 2rem;
       font-weight: 700;
       letter-spacing: 0.02em;
+      white-space: nowrap;
     }
 
     .nav-links {
@@ -95,13 +95,13 @@
       padding: 14px 24px;
       border-radius: 999px;
       font-weight: 700;
-      transition: 0.2s ease;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
       border: none;
       cursor: pointer;
     }
 
     .btn:hover {
-      transform: translateY(-1px);
+      transform: translateY(-2px);
     }
 
     .btn-primary {
@@ -120,17 +120,35 @@
       padding: 72px 0 48px;
     }
 
-   .hero-box {
-  background: linear-gradient(135deg, rgba(255,255,255,0.96), rgba(248,239,235,0.96));
-  border: 1px solid var(--line);
-  border-radius: 36px;
-  padding: 58px;
-  box-shadow: var(--shadow);
-  display: grid;
-  grid-template-columns: 0.85fr 1.15fr; /* ← Bild links, Text rechts */
-  gap: 28px;
-  align-items: center;
-}
+    .hero-box {
+      background: linear-gradient(135deg, rgba(255,255,255,0.96), rgba(248,239,235,0.96));
+      border: 1px solid var(--line);
+      border-radius: 36px;
+      padding: 58px;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .hero-image-wrap {
+      background: #f4e9e3;
+      border-radius: 30px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-image {
+      width: 100%;
+      max-height: 430px;
+      object-fit: contain;
+      border-radius: 22px;
+    }
+
     .eyebrow {
       display: inline-block;
       margin-bottom: 14px;
@@ -168,20 +186,6 @@
       font-size: 0.92rem;
     }
 
-    .hero-image-wrap {
-      background: #f4e9e3;
-      border-radius: 30px;
-      padding: 18px;
-      border: 1px solid var(--line);
-    }
-
-    .hero-image {
-      height: 430px;
-      width: 100%;
-      object-fit: cover;
-      border-radius: 22px;
-    }
-
     .section {
       padding: 28px 0 60px;
     }
@@ -208,42 +212,8 @@
       grid-template-columns: repeat(4, 1fr);
       gap: 22px;
     }
-@media (max-width: 1024px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
 
-@media (max-width: 640px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
-}    222 @media (max-width: 640px) {
-223   .section {
-224     padding: 56px 0;
-225   }
-
-226   .section-head h2 {
-227     font-size: 2rem;
-228   }
-
-229   .section-head p {
-230     font-size: 0.95rem;
-231   }
-
-232   .card-body {
-233     padding: 18px;
-234   }
-
-235   .card h3 {
-236     font-size: 1.1rem;
-237   }
-
-238   .btn {
-239     padding: 14px;
-240     font-size: 0.95rem;
-241   }
-242 .card {
+    .card {
       background: var(--card);
       border: 1px solid var(--line);
       border-radius: 26px;
@@ -251,11 +221,14 @@
       box-shadow: var(--shadow);
       display: flex;
       flex-direction: column;
-      transition: 0.2s ease;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      text-decoration: none;
+      color: inherit;
     }
 
     .card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.08);
     }
 
     .card-media {
@@ -305,14 +278,13 @@
       min-height: 66px;
     }
 
-   .card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 25px 60px rgba(0,0,0,0.1);
-}
-.card:hover {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.08);
-}
+    .card .btn {
+      width: 100%;
+      margin-top: auto;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: white;
+    }
+
     .benefits {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -346,88 +318,86 @@
     }
 
     @media (max-width: 1024px) {
-      .hero-box,
-      .grid,
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
       .benefits {
         grid-template-columns: 1fr 1fr;
       }
+    }
+
+    @media (max-width: 720px) {
+      .nav {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .logo {
+        font-size: 1.6rem;
+      }
+
+      .nav-links {
+        gap: 14px;
+        flex-wrap: nowrap;
+        justify-content: flex-end;
+        font-size: 0.9rem;
+      }
 
       .hero-box {
+        display: block;
+        padding: 28px;
+      }
+
+      .hero-image-wrap {
+        display: block;
+        max-width: 260px;
+        margin: 0 auto 20px;
+        padding: 12px;
+      }
+
+      .hero-image {
+        width: 100%;
+        height: auto;
+        max-height: none;
+        object-fit: contain;
+      }
+
+      .grid,
+      .benefits {
         grid-template-columns: 1fr;
       }
     }
 
-@media (max-width: 720px) {
-  .nav {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 12px;
-  }
+    @media (max-width: 640px) {
+      .section {
+        padding: 56px 0;
+      }
 
-  .logo {
-    font-size: 1.6rem;
-    white-space: nowrap;
-  }
+      .section-head h2 {
+        font-size: 2rem;
+      }
 
-  .nav-links {
-    display: flex;
-    gap: 14px;
-    flex-wrap: nowrap;
-    justify-content: flex-end;
-    font-size: 0.9rem;
-  }
+      .section-head p {
+        font-size: 0.95rem;
+      }
 
-  .hero-box {
-    display: block;
-    padding: 28px;
-  }
+      .card-body {
+        padding: 18px;
+      }
 
-  .hero-image-wrap {
-    display: block;
-    max-width: 260px;
-    margin: 0 auto 20px;
-    padding: 12px;
-  }
+      .card h3 {
+        font-size: 1.1rem;
+      }
 
-  .hero-image {
-    display: block;
-    width: 100%;
-    height: auto;
-    max-height: none;
-    object-fit: contain;
-  }
-
-  .grid,
-  .benefits {
-    grid-template-columns: 1fr;
-  }
-  }
-
-  .hero-image-wrap {
-    display: block;
-    padding: 12px;
-    max-width: 280px;
-    margin: 0 auto 18px;
-  }
-
-  .hero-image {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-  }
-}  .hero-image-wrap {
-    display: block;
-    padding: 12px;
-  }
-
-  .hero-image {
-    width: 100%;
-    height: auto;
-    max-height: 220px;
-    object-fit: contain;
-  }
-}</style>
+      .btn {
+        padding: 14px;
+        font-size: 0.95rem;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="topbar">
@@ -441,38 +411,26 @@
   </div>
 
   <section class="hero" id="top">
-
-
-<section class="hero" id="top">
-  <div class="container hero-box">
-
-    <div class="hero-image-wrap">
-      <img class="hero-image"
-        src="https://raw.githubusercontent.com/Magischemomente/magicmoments/main/logo%20magicmoments.PNG"
-        alt="MagicMoments Logo">
-    </div>
-
-    <div>
-      <span class="eyebrow">Beauty • Care • Lifestyle</span>
-      <h1>Exklusive Produkte. Stilvoll präsentiert.</h1>
-
-      <p>
-        Entdecke ausgewählte Produkte – made in Germany – aus Parfüm,
-        Nutrition, Haircare und Personal Care in einem ruhigen, eleganten Look.
-      </p>
-
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#produkte">Produkte ansehen</a>
-        <a class="btn btn-secondary" href="#vorteile">Mehr erfahren</a>
+    <div class="container hero-box">
+      <div class="hero-image-wrap">
+        <img class="hero-image" src="https://raw.githubusercontent.com/Magischemomente/magicmoments/main/logo%20magicmoments.PNG" alt="MagicMoments Logo">
       </div>
 
-      <div class="hero-note">
-        Ausgewählte Empfehlungen mit direkter Weiterleitung zum Produkt.
+      <div>
+        <span class="eyebrow">Beauty • Care • Lifestyle</span>
+        <h1>Exklusive Produkte. Stilvoll präsentiert.</h1>
+        <p>
+          Entdecke ausgewählte Produkte – made in Germany – aus Parfüm, Nutrition, Haircare und Personal Care in einem ruhigen, eleganten Look.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#produkte">Produkte ansehen</a>
+          <a class="btn btn-secondary" href="#vorteile">Mehr erfahren</a>
+        </div>
+        <div class="hero-note">Ausgewählte Empfehlungen mit direkter Weiterleitung zum Produkt.</div>
       </div>
     </div>
+  </section>
 
-  </div>
-</section>
   <section class="section" id="produkte">
     <div class="container">
       <div class="section-head">
@@ -481,58 +439,57 @@
       </div>
 
       <div class="grid">
-  <a class="card" href="https://www.xaxx.eu/parfum/x-line/parfum/1100/extract-de-parfum-100ml-x-01?partner=82424" target="_blank" rel="noopener noreferrer">
-    <div class="card-media">
-      <img src="https://www.xaxx.eu/media/image/f0/1d/1d/X-01-Box-Flacon-Halb-Offen-Shopbild.jpg" alt="Extract de Parfum X-01 Flakon">
-    </div>
-    <div class="card-body">
-      <div class="tag">Parfüm</div>
-      <h3>Extract de Parfum X-01</h3>
-      <div class="stars">★★★★★</div>
-      <p>Eleganter Duft mit hochwertigem Auftritt für besondere Momente.</p>
-      <span class="btn">Jetzt ansehen</span>
-    </div>
-  </a>
+        <a class="card" href="https://www.xaxx.eu/parfum/x-line/parfum/1100/extract-de-parfum-100ml-x-01?partner=82424" target="_blank" rel="noopener noreferrer">
+          <div class="card-media">
+            <img src="https://www.xaxx.eu/media/image/f0/1d/1d/X-01-Box-Flacon-Halb-Offen-Shopbild.jpg" alt="Extract de Parfum X-01 Flakon">
+          </div>
+          <div class="card-body">
+            <div class="tag">Parfüm</div>
+            <h3>Extract de Parfum X-01</h3>
+            <div class="stars">★★★★★</div>
+            <p>Eleganter Duft mit hochwertigem Auftritt für besondere Momente.</p>
+            <span class="btn">Jetzt ansehen</span>
+          </div>
+        </a>
 
-  <a class="card" href="https://www.xaxx.eu/nutrition/ernaehrung/1019/3-x-shake-oder-muesli-nach-wahl?partner=82424" target="_blank" rel="noopener noreferrer">
-    <div class="card-media">
-      <img src="https://www.xaxx.eu/media/image/a8/85/b0/3-1SET-Shake-Muesli-2024.jpg" alt="Shake oder Müsli Set">
-    </div>
-    <div class="card-body">
-      <div class="tag">Nutrition</div>
-      <h3>Shake oder Müsli Set</h3>
-      <div class="stars">★★★★★</div>
-      <p>Praktische Auswahl für Energie, Alltag und eine einfache Routine.</p>
-      <span class="btn">Jetzt ansehen</span>
-    </div>
-  </a>
+        <a class="card" href="https://www.xaxx.eu/nutrition/ernaehrung/1019/3-x-shake-oder-muesli-nach-wahl?partner=82424" target="_blank" rel="noopener noreferrer">
+          <div class="card-media">
+            <img src="https://www.xaxx.eu/media/image/a8/85/b0/3-1SET-Shake-Muesli-2024.jpg" alt="Shake oder Müsli Set">
+          </div>
+          <div class="card-body">
+            <div class="tag">Nutrition</div>
+            <h3>Shake oder Müsli Set</h3>
+            <div class="stars">★★★★★</div>
+            <p>Praktische Auswahl für Energie, Alltag und eine einfache Routine.</p>
+            <span class="btn">Jetzt ansehen</span>
+          </div>
+        </a>
 
-  <a class="card" href="https://www.xaxx.eu/hair-care-new/988/xaxx-hair-set-creme-shampoo-haarmaske?partner=82424" target="_blank" rel="noopener noreferrer">
-    <div class="card-media">
-      <img src="https://www.xaxx.eu/media/image/38/d7/8a/SET-Shampoo-Maske.jpg" alt="XAXX Hair Set mit Shampoo und Maske">
-    </div>
-    <div class="card-body">
-      <div class="tag">Haircare</div>
-      <h3>XAXX Hair Set</h3>
-      <div class="stars">★★★★★</div>
-      <p>Shampoo und Maske für ein gepflegtes Haargefühl mit klarem Look.</p>
-      <span class="btn">Jetzt ansehen</span>
-    </div>
-  </a>
+        <a class="card" href="https://www.xaxx.eu/hair-care-new/988/xaxx-hair-set-creme-shampoo-haarmaske?partner=82424" target="_blank" rel="noopener noreferrer">
+          <div class="card-media">
+            <img src="https://www.xaxx.eu/media/image/38/d7/8a/SET-Shampoo-Maske.jpg" alt="XAXX Hair Set mit Shampoo und Maske">
+          </div>
+          <div class="card-body">
+            <div class="tag">Haircare</div>
+            <h3>XAXX Hair Set</h3>
+            <div class="stars">★★★★★</div>
+            <p>Shampoo und Maske für ein gepflegtes Haargefühl mit klarem Look.</p>
+            <span class="btn">Jetzt ansehen</span>
+          </div>
+        </a>
 
-  <a class="card" href="https://www.xaxx.eu/xaxx-care/frei-oel/1037/set-sensitive-handcreme-fusscreme-je-100ml?partner=82424" target="_blank" rel="noopener noreferrer">
-    <div class="card-media">
-      <img src="https://www.xaxx.eu/media/image/7b/da/b5/Set-Handcreme-Fusscreme-Shopbild.jpg" alt="Sensitive Pflege Set für Hände und Füße">
-    </div>
-    <div class="card-body">
-      <div class="tag">Personal Care</div>
-      <h3>Sensitive Pflege Set</h3>
-      <div class="stars">★★★★★</div>
-      <p>Sanfte tägliche Pflege für Hände und Füße in einem Set.</p>
-      <span class="btn">Jetzt ansehen</span>
-    </div>
-  </a>
-</div>        </div>
+        <a class="card" href="https://www.xaxx.eu/xaxx-care/frei-oel/1037/set-sensitive-handcreme-fusscreme-je-100ml?partner=82424" target="_blank" rel="noopener noreferrer">
+          <div class="card-media">
+            <img src="https://www.xaxx.eu/media/image/7b/da/b5/Set-Handcreme-Fusscreme-Shopbild.jpg" alt="Sensitive Pflege Set für Hände und Füße">
+          </div>
+          <div class="card-body">
+            <div class="tag">Personal Care</div>
+            <h3>Sensitive Pflege Set</h3>
+            <div class="stars">★★★★★</div>
+            <p>Sanfte tägliche Pflege für Hände und Füße in einem Set.</p>
+            <span class="btn">Jetzt ansehen</span>
+          </div>
+        </a>
       </div>
     </div>
   </section>
@@ -549,12 +506,10 @@
           <h3>Made in Germany</h3>
           <p>Produkte mit hohem Qualitätsanspruch und sorgfältig ausgewählten Inhaltsstoffen.</p>
         </div>
-
         <div class="benefit">
           <h3>Stilvoll ausgewählt</h3>
           <p>Beauty, Care und Lifestyle in einer ruhigen, eleganten Präsentation.</p>
         </div>
-
         <div class="benefit">
           <h3>Direkt erreichbar</h3>
           <p>Klare Empfehlungen mit schneller Weiterleitung zum passenden Produkt.</p>
