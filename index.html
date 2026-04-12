@@ -357,30 +357,40 @@
       }
     }
 
-    @media (max-width: 720px) {
-      .nav {
-        flex-direction: column;
-      }
+   @media (max-width: 720px) {
+  .nav {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
 
-      .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
+  .logo {
+    font-size: 1.6rem;
+    white-space: nowrap;
+  }
 
-      .hero-box {
-        padding: 28px;
-      }
+  .nav-links {
+    display: flex;
+    gap: 14px;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    font-size: 0.9rem;
+  }
 
-      .grid,
-      .benefits {
-        grid-template-columns: 1fr;
-      }
+  .hero-box {
+    padding: 28px;
+  }
 
-      .hero-image {
-        height: 320px;
-      }
-    }
-  </style>
+  .grid,
+  .benefits {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-image {
+    height: 320px;
+  }
+}  </style>
 </head>
 <body>
   <div class="topbar">
