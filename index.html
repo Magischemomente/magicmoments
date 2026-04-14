@@ -238,9 +238,37 @@
       font-size: 0.92rem;
     }
 
-    .section {
-      padding: 28px 0 60px;
-    }
+<section class="actions">
+  <div class="container">
+    
+    <div class="section-head">
+      <h2>Aktuelle Aktionen</h2>
+    </div>
+
+    <div class="actions-grid">
+
+      <div class="action-card">
+        <h3>20% Rabatt</h3>
+        <p>Auf ausgewählte Produkte</p>
+        <a href="#" class="btn btn-primary">Jetzt sichern</a>
+      </div>
+
+      <div class="action-card">
+        <h3>Gratis Versand</h3>
+        <p>Ab 50€ Bestellwert</p>
+        <a href="#" class="btn btn-primary">Mehr erfahren</a>
+      </div>
+
+      <div class="action-card">
+        <h3>Neu</h3>
+        <p>Frische Produkte im Sortiment</p>
+        <a href="#" class="btn btn-primary">Ansehen</a>
+      </div>
+</div> <!-- actions-grid -->
+</div> <!-- container -->
+</section>
+
+    
 
     .section-head {
       text-align: center;
@@ -552,6 +580,38 @@
     padding: 15px;
     font-size: 1rem;
   }
+  .actions {
+  padding: 60px 0;
+}
+
+.actions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.action-card {
+  background: linear-gradient(135deg, #ffffff, #f8efec);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  text-align: center;
+  transition: 0.3s;
+}
+
+.action-card:hover {
+  transform: translateY(-5px);
+}
+
+.action-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.action-card p {
+  color: var(--muted);
+  margin-bottom: 16px;
+}
   </style>
 </head>
 <body>
