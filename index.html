@@ -731,6 +731,38 @@
     line-height: 1.7;
   }
 }
+  .nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: 12px;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+}
   @media (max-width: 600px) {
   .grid {
     grid-template-columns: 1fr;
@@ -749,13 +781,17 @@
 </head>
 <body>
   <div class="topbar">
-    <div class="container nav">
-      <a class="logo" href="#top">MagicMoments ✨</a>
-      <div class="nav-links">
-        <a href="#produkte">Produkte</a>
-        <a href="#vorteile">Warum wir</a>
-      </div>
-    </div>
+   <div class="container nav">
+  <a class="logo" href="#top">MagicMoments ✨</a>
+
+ <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">
+  ☰
+</button> 
+  <div class="nav-links" id="mobile-menu">
+    <a href="#produkte">Produkte</a>
+    <a href="#vorteile">Warum wir</a>
+  </div>
+</div>
   </div>
 
   <section class="hero" id="top">
