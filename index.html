@@ -189,7 +189,34 @@
       gap: 40px;
       align-items: center;
     }
+.actions {
+  padding: 80px 0;
+  background: #f9f4f2;
+}
 
+.actions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.action-card {
+  background: white;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+  text-align: center;
+}
+
+.action-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.action-card p {
+  color: var(--muted);
+  margin-bottom: 16px;
+}
  .hero-image-wrap {
   max-width: 320px;
   margin: 0 auto;
@@ -238,35 +265,7 @@
       font-size: 0.92rem;
     }
 
-<section class="actions">
-  <div class="container">
-    
-    <div class="section-head">
-      <h2>Aktuelle Aktionen</h2>
-    </div>
 
-    <div class="actions-grid">
-
-      <div class="action-card">
-        <h3>20% Rabatt</h3>
-        <p>Auf ausgewählte Produkte</p>
-        <a href="#" class="btn btn-primary">Jetzt sichern</a>
-      </div>
-
-      <div class="action-card">
-        <h3>Gratis Versand</h3>
-        <p>Ab 50€ Bestellwert</p>
-        <a href="#" class="btn btn-primary">Mehr erfahren</a>
-      </div>
-
-      <div class="action-card">
-        <h3>Neu</h3>
-        <p>Frische Produkte im Sortiment</p>
-        <a href="#" class="btn btn-primary">Ansehen</a>
-      </div>
-</div> <!-- actions-grid -->
-</div> <!-- container -->
-</section>
 
     
 
@@ -810,7 +809,35 @@
       </div>
     </div>
   </section>
+<section class="actions">
+  <div class="container">
+    
+    <div class="section-head">
+      <h2>Aktuelle Aktionen</h2>
+    </div>
 
+    <div class="actions-grid">
+
+      <div class="action-card">
+        <h3>20% Rabatt</h3>
+        <p>Auf ausgewählte Produkte</p>
+        <a href="#" class="btn btn-primary">Jetzt sichern</a>
+      </div>
+
+      <div class="action-card">
+        <h3>Gratis Versand</h3>
+        <p>Ab 50€ Bestellwert</p>
+        <a href="#" class="btn btn-primary">Mehr erfahren</a>
+      </div>
+
+      <div class="action-card">
+        <h3>Neu</h3>
+        <p>Frische Produkte im Sortiment</p>
+        <a href="#" class="btn btn-primary">Ansehen</a>
+      </div>
+</div> <!-- actions-grid -->
+</div> <!-- container -->
+</section>
   <div class="footer container">
     Diese Seite enthält Affiliate-Links. Wenn du über einen Link kaufst, erhalten wir eine Provision. Für dich entstehen keine Mehrkosten.
   </div>
