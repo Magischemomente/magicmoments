@@ -421,53 +421,42 @@
       .benefits {
         grid-template-columns: 1fr 1fr;
       }
-    }
-
-    @media (max-width: 720px) {
-      .nav {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        gap: 12px;
-      }
-
-      .logo {
-        font-size: 1.6rem;
-      }
-
-  .logo {
-    font-size: 1.6rem;
-  }
-
-  .nav-toggle {
-    display: block;
-    background: none;
-    border: none;
-    font-size: 1.8rem;
-    cursor: pointer;
-  }
-
+    
+@media (max-width: 720px) {
   .nav-links {
     display: none;
-    width: 100%;
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    width: 180px;
+    padding: 12px;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.08);
     flex-direction: column;
     align-items: center;
-    gap: 12px;
-    margin-top: 12px;
+    gap: 10px;
   }
 
   .nav-links.open {
     display: flex;
   }
+
+  .logo {
+    font-size: 1.6rem;
+  }
+.nav-toggle {
+  display: block;
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  color: var(--text);
 }
-    .nav-links {
-  display: none;
-  width: 100%;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  margin-top: 12px;
-}
+  /* weitere Mobile-Regeln ... */
+} 
+
+
       
      .hero-box {
         display: block;
