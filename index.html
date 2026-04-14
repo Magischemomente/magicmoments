@@ -453,10 +453,22 @@
   cursor: pointer;
   color: var(--text);
 }
-  /* weitere Mobile-Regeln ... */
+  }/* weitere Mobile-Regeln ... */
 } 
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+/* Hover Effekt Buttons */
 
+.btn {
+  transition: all 0.25s ease;
+}
 
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+}
       
      .hero-box {
         display: block;
@@ -912,28 +924,33 @@
       <h2>Aktuelle Aktionen</h2>
     </div>
 
-    <div class="actions-grid">
+ <div class="actions-grid">
 
-      <div class="action-card">
-        <h3>HC</h3>
-        <p>Body Control</p>
-        <a href="#" class="btn btn-primary">Jetzt sichern</a>
-      </div>
+  <div class="action-card">
+    <h3>Body Control</h3>
+    <p>Unterstützt dein Wohlbefinden im Alltag</p>
+    <a href="https://www.hc-bodycontrol.de/nutrition/body-control-sets/498/hc-vitality-set?partner=82424" target="_blank" rel="noopener" class="btn btn-primary">
+      Jetzt sichern
+    </a>
+  </div>
 
-      <div class="action-card">
-        <h3>Top Deal</h3>
-        <p>April</p>
-        <a href="#" class="btn btn-primary">Mehr erfahren</a>
-      </div>
+  <div class="action-card">
+    <h3>Top Deal April</h3>
+    <p>Exklusive Angebote nur für kurze Zeit</p>
+    <a href="https://www.xaxx.eu/grillsaison/953/3-1-hc-wundersauce?partner=82424" target="_blank" rel="noopener" class="btn btn-primary">
+      Mehr erfahren
+    </a>
+  </div>
 
-      <div class="action-card">
-        <h3>Starter Set</h3>
-        <p>werde Partner</p>
-        <a href="#" class="btn btn-primary">Ansehen</a>
-      </div>
-</div> <!-- actions-grid -->
-</div> <!-- container -->
-</section>
+  <div class="action-card">
+    <h3>Starter Set</h3>
+    <p>Perfekt für deinen Einstieg – jetzt Partner werden</p>
+    <a href="https://www.xaxx.eu/starter-sets/1102/startset-basic-typ-ii?partner=82424" target="_blank" rel="noopener" class="btn btn-primary">
+      Ansehen
+    </a>
+  </div>
+
+</div>
 <section class="about">
   <img src="Profil.PNG" alt="Mario" class="about-img">
 
