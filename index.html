@@ -453,22 +453,11 @@
   cursor: pointer;
   color: var(--text);
 }
-  }/* weitere Mobile-Regeln ... */
-} 
-.btn-primary:active {
-  transform: translateY(0);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-}
-/* Hover Effekt Buttons */
+ /* weitere Mobile-Regeln ... */
 
-.btn {
-  transition: all 0.25s ease;
-}
 
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
-}
+
+
       
      .hero-box {
         display: block;
@@ -494,7 +483,19 @@
         grid-template-columns: 1fr;
       }
     }
+.btn {
+  transition: all 0.25s ease;
+}
 
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
     @media (max-width: 640px) {
       .section {
         padding: 56px 0;
